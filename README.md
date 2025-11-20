@@ -28,3 +28,21 @@ Boot your microservices-enabled system using docker-compose.
     docker-compose up
 
 You can shut down using `docker-compose stop` and remove everything using `docker-compose rm`.
+
+### Generate user
+
+```
+cd scripts/project/generate-dashboard-login
+chmod +x run.sh
+./run.sh
+```
+
+### Start application with script
+
+The run.sh script first generates a scheduled job and then starts all containers.
+
+```
+cd /path/to/mu-project
+chmod +x run.sh
+bash run.sh
+```

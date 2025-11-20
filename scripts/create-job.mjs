@@ -45,7 +45,7 @@ const MAKE_TTL_MIGRATION = (consumerType, cronExpr = "*/5 * * * *") => {
 <http://redpencil.data.gift/id/remote-file/${rfID}> <http://redpencil.data.gift/vocabularies/http/requestHeader> <http://data.lblod.info/request-headers/accept/text/html> .
 <http://redpencil.data.gift/id/remote-file/${rfID}> <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#url> <${consumerType}> .
 `
-    const migrationName = `../config/migrations/local/job-migration-${randomUUID()}`;
+    const migrationName = `${process.cwd()}/../config/migrations/local/job-migration-${randomUUID()}`;
 
     writeFileSync(migrationName + ".graph",
         "http://mu.semte.ch/graphs/harvesting", { encoding: 'utf8' });

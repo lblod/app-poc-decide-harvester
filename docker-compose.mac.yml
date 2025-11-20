@@ -1,0 +1,34 @@
+services:
+  identifier:
+    image: benfidlers/mu-identifier:1.10.3-arm64
+  dispatcher:
+    platform: linux/amd64
+  triplestore:
+    platform: linux/arm64
+  database:
+    platform: linux/amd64
+  delta-notifier:
+    image: semtech/mu-delta-notifier:latest
+    platform: linux/arm64
+  resource:
+    platform: linux/arm64
+  consumer-service:
+    platform: linux/amd64
+  filter-service:
+    platform: linux/amd64
+  publish-service:
+    platform: linux/amd64
+  frontend-dashboard:
+    platform: linux/amd64
+  login:
+    platform: linux/amd64
+  cache:
+    platform: linux/amd64
+  migrations:
+    platform: linux/amd64
+  jobs-controller:
+    platform: linux/arm64
+  scheduled-job-controller:
+    platform: linux/amd64
+  project-scripts:
+    platform: linux/amd64
