@@ -74,7 +74,18 @@ INSERT DATA {
 }}
 )
 
+# Get current working directory
+project_root = Dir.pwd
+
+# Ensure the migrations directory exists
+migration_dir = File.join(project_root, "..", "..", "..", "config", "migrations", "local")
+Dir.mkdir(migration_dir) unless Dir.exist?(migration_dir)
+
+# Build filename
 timestamp = DateTime.now.strftime("%Y%m%d%H%M%L")
 filename = "#{timestamp}-create-user-#{account_name.gsub(" ", "-")}.sparql"
-File.write("/project/config/migrations/local/#{filename}", query)
+
+# Write file
+File.write(File.join(migration_dir, filename), query)
+
 puts "generated migration ./config/migrations/local/#{filename} for #{account_name.inspect} : #{password.inspect}"
