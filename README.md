@@ -31,12 +31,24 @@ You can shut down using `docker-compose stop` and remove everything using `docke
 
 ### Generate user
 
+- make sure the script is executable:
+
 ```
-cd scripts/project/generate-dashboard-login
-chmod +x run.sh
-./run.sh
+chmod +x scripts/project/generate-dashboard-login/run.sh
+
+- add a salt to your docker-compose.override.yml file:
+```yaml
+  login:
+    restart: "no"
+    environment:
+      MU_APPLICATION_SALT: "9d76fa3c48a39b7d21a9db1fddeba4bf" # just an example
 ```
 
+- generate using mu script:
+
+```
+mu script  project-scripts generate-dashboard-login
+```
 ### Start application with script
 
 The run.sh script first generates a scheduled job and then starts all containers.
