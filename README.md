@@ -35,10 +35,11 @@ You can shut down using `docker-compose stop` and remove everything using `docke
 
 ```
 chmod +x scripts/project/generate-dashboard-login/run.sh
-
+```
 - add a salt to your docker-compose.override.yml file:
 ```yaml
-  login:
+services:
+ login:
     restart: "no"
     environment:
       MU_APPLICATION_SALT: "9d76fa3c48a39b7d21a9db1fddeba4bf" # just an example
