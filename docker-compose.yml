@@ -151,7 +151,7 @@ services:
         logging: *default-logging
 
     scheduled-job-controller:
-        image: lblod/scheduled-job-controller-service:1.0.3
+        image: lblod/scheduled-job-controller-service:feature-run-scheduled-job-manually
         environment:
             LOG_SPARQL_ALL: "false"
             DEBUG_AUTH_HEADERS: "false"
