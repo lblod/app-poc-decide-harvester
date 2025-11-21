@@ -1,4 +1,5 @@
-cp .env.example .env
+#!/usr/bin/env bash
+[ ! -f .env ] && cp .env.example .env
 docker compose down
 sudo rm -rf data
 rm -f config/migrations/local/job-migration* && cd scripts && node create-job.mjs --cron="once" --type=http://mu.semte.ch/vocabularies/ext/decide-consumer/initial-sync
