@@ -8,7 +8,7 @@
                 "arguments": []
             },
             "environment": {
-                "image": "ruby",
+                "image": "semtech/mu-login-service:3.0.0",
                 "interactive": true,
                 "script": "generate-dashboard-login/run.sh"
             },
