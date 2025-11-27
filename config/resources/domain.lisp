@@ -1,16 +1,16 @@
 (in-package :mu-cl-resources)
 
-(setf *include-count-in-paginated-responses* t)
-(setf *supply-cache-headers-p* t)
-(setf sparql:*experimental-no-application-graph-for-sudo-select-queries* t)
+
+
+(defparameter *cache-count-queries* nil)
+(defparameter *supply-cache-headers-p* t
+  "when non-nil, cache headers are supplied.  this works together with mu-cache.")
 (setf *cache-model-properties-p* t)
-(setf mu-support::*use-custom-boolean-type-p* nil)
-(setq *cache-count-queries-p* t)
-(setf sparql:*query-log-types* nil) ;; hint: use app-http-logger for logging queries instead, all is '(:default :update-group :update :query :ask)
-
-
-; use xsd:boolean instead of custom datatype
-(defparameter *use-custom-boolean-type-p* nil)
+(defparameter *include-count-in-paginated-responses* t
+  "when non-nil, all paginated listings will contain the number
+   of responses in the result object's meta.")
+(defparameter *max-group-sorted-properties* t)
+(defparameter sparql:*experimental-no-application-graph-for-sudo-select-queries* t)
 
 (read-domain-file "auth.json")
 (read-domain-file "file.json")

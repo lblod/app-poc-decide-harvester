@@ -40,6 +40,9 @@ defmodule Dispatcher do
     Proxy.forward(conn, path, "http://cache/job-errors/")
   end
 
+  match "/harvesting-collections/*path",  %{accept: [:json], layer: :api} do
+    Proxy.forward(conn, path, "http://cache/harvesting-collections/")
+  end
   match "/reports/*path", %{accept: [:json], layer: :api} do
     Proxy.forward(conn, path, "http://resource/reports/")
   end

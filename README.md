@@ -59,3 +59,12 @@ cd /path/to/mu-project
 chmod +x run.sh
 bash run.sh
 ```
+
+
+### run scheduled job manually (using scheduled job controller)
+
+This endpoint is for debugging purpose only! You can use the frontend to create a new job.
+
+- you need to run the `create-job` script in order for it to generate a scheduled job
+- copy the scheduled job uri from config/migrations/local/<the_generated_migration_name>
+- run `docker compose exec scheduled-job-controller curl -v -X POST http://localhost/run-scheduled-job?uri=http://redpencil.data.gift/id/scheduled-job/3faefdb9-1b48-4389-89e1-706bea85705d -H "Content-Type: application/json"`
